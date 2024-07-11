@@ -1,7 +1,6 @@
 package PDV;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class PDV {
     public static void main(String[] args) {
@@ -11,7 +10,7 @@ public class PDV {
     }
 
     public void vender(String nome){
-        for
+        //for
 
     }
 }

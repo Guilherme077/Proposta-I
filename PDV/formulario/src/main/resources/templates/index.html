@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de PDV</title>
+</head>
+<body>
+    <h1 th:text="${titulo}">PDV (html de teste)</h1>
+    <form action="/cadproduto" method="POST">
+        <label>Nome:</label>
+        <input type="text" name="nome" th:value="${nome}">
+        <label>Preço:</label>
+        <input type="text" name="preco" th:value="${preco}">
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
