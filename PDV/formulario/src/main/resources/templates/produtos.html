@@ -7,5 +7,10 @@
 </head>
 <body>
     <p th:text="${nome}"></p>
+    <p th:text="${preco}"></p>
+    <p th:text="${qtd}"></p>
+    <ul th:each="item : ${listaDeProdutos}">
+        <li th:text="${item}"></li>
+    </ul>
 </body>
 </html>

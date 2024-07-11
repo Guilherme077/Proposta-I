@@ -17,10 +17,11 @@ public class ControllerFormulario {
         }
 
         @PostMapping("/cadproduto")
-        public ModelAndView cadProduto(String nome, int preco){
+        public ModelAndView cadProduto(String nome, int preco, int quantidade){
+            PDV.AddProduto(nome, preco, quantidade);
             ModelAndView mv = new ModelAndView("produtos");
-            mv.addObject("nome", nome);
-            System.out.println(nome);
+            mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
+            System.out.println(PDV.ListaProdutosStr.get(0));
             return mv;
 
         }
