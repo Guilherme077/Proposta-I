@@ -10,7 +10,7 @@ public class ControllerFormulario {
 
         @GetMapping("/home")
         public ModelAndView home(){
-            ModelAndView mv = new ModelAndView("index");
+            ModelAndView mv = new ModelAndView("index-TEST"); // Mudar para "index" no final
             String tituloNovo = "PDV";
             mv.addObject("titulo", tituloNovo);
             return mv;
@@ -19,6 +19,15 @@ public class ControllerFormulario {
         @PostMapping("/cadproduto")
         public ModelAndView cadProduto(String nome, int preco, int quantidade){
             PDV.AddProduto(nome, preco, quantidade);
+            ModelAndView mv = new ModelAndView("produtos");
+            mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
+            System.out.println(PDV.ListaProdutosStr.get(0));
+            return mv;
+
+        }
+        @PostMapping("/vendaproduto")
+        public ModelAndView vendaProduto(String nome, int quantidade){
+            PDV.VenderProduto(nome, quantidade);
             ModelAndView mv = new ModelAndView("produtos");
             mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
             System.out.println(PDV.ListaProdutosStr.get(0));
