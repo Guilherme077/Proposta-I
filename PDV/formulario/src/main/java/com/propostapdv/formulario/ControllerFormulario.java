@@ -21,7 +21,6 @@ public class ControllerFormulario {
             PDV.AddProduto(nome, preco, quantidade);
             ModelAndView mv = new ModelAndView("produtos");
             mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
-            System.out.println(PDV.ListaProdutosStr.get(0));
             return mv;
 
         }
@@ -30,7 +29,13 @@ public class ControllerFormulario {
             PDV.VenderProduto(nome, quantidade);
             ModelAndView mv = new ModelAndView("produtos");
             mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
-            System.out.println(PDV.ListaProdutosStr.get(0));
+            return mv;
+
+        }
+        @PostMapping("/lista")
+        public ModelAndView lista(){
+            ModelAndView mv = new ModelAndView("produtos");
+            mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
             return mv;
 
         }
