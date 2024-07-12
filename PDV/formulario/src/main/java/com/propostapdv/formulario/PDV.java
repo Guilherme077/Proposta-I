@@ -27,8 +27,6 @@ public class PDV {
     public static void VenderProduto(String produto, int quantidade){
         for(int n = 0; n < ListaProdutos.size(); n++){
             String nomeProduto = ListaProdutos.get(n).Nome;
-            System.out.println("PROCURANDO" + produto);
-            System.out.println(nomeProduto + " " + produto);
             if(nomeProduto.equals(produto)){
                  if((ListaProdutos.get(n).Quantidade) - quantidade == 0){
                     RemoverProduto(produto);
@@ -45,7 +43,6 @@ public class PDV {
             }
         }
         AtualizarListaString();
-        System.out.println(ListaProdutosStr.get(0));
     }
     public static void SubtrairQuantidade(int id, int quantidade){
         (ListaProdutos.get(id).Quantidade) -= quantidade;
