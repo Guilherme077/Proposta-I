@@ -13,7 +13,7 @@ public class PDV {
     public static void AtualizarListaString(){
         ListaProdutosStr.clear();
         for(int n = 0; n < ListaProdutos.size(); n++){
-            ListaProdutosStr.add("<div style=\"font-size: 20px; color: green;\"> <div id=\"nomeProduto\" style=\"font-size: 30px; color: green;\">Nome: " + ListaProdutos.get(n).Nome + "</div><div id=\"precoProduto\"> Preço: " + ListaProdutos.get(n).Preco + "</div><div id=\"quantidadeProduto\"> Quantidade: " + ListaProdutos.get(n).Quantidade + "</div></div>");
+            ListaProdutosStr.add("<div style=\"font-size: 20px; color: black;\"> <div id=\"nomeProduto\" style=\"font-size: 30px; color: green;\">Nome: " + ListaProdutos.get(n).Nome + "</div><div id=\"precoProduto\"> Preço: " + ListaProdutos.get(n).Preco + "</div><div id=\"quantidadeProduto\"> Quantidade: " + ListaProdutos.get(n).Quantidade + "</div></div>");
         }
         
     }
