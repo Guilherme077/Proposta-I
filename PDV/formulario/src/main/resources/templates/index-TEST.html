@@ -26,6 +26,10 @@
             <input type="submit" value="Vender">  
         </form>
         <hr>
+        <ul th:each="item : ${listaDeProdutos}">
+            <li th:utext="${item}"></li>
+        </ul>
+        <hr>
         <form action="/lista" method="POST"><input type="submit" value="Mostrar produtos"> </form>
     <hr>
     <h3></h3>

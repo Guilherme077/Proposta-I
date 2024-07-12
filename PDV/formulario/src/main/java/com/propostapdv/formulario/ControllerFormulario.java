@@ -11,8 +11,7 @@ public class ControllerFormulario {
         @GetMapping("/home")
         public ModelAndView home(){
             ModelAndView mv = new ModelAndView("index-TEST"); // Mudar para "index" no final
-            String tituloNovo = "PDV";
-            mv.addObject("titulo", tituloNovo);
+            mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
             return mv;
         }
 
