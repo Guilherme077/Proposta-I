@@ -1,5 +1,7 @@
 package com.propostapdv.formulario;
 
+import java.sql.SQLException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,13 +12,14 @@ public class ControllerFormulario {
 
         @GetMapping("/home")
         public ModelAndView home(){
+            PDV.AtualizarListaString();
             ModelAndView mv = new ModelAndView("index-TEST"); // Mudar para "index" no final
             mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
             return mv;
         }
 
         @PostMapping("/cadproduto")
-        public ModelAndView cadProduto(String nome, int preco, int quantidade){
+        public ModelAndView cadProduto(String nome, int preco, int quantidade) throws SQLException{
             PDV.AddProduto(nome, preco, quantidade);
             ModelAndView mv = new ModelAndView("produtos");
             mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);

@@ -2,10 +2,10 @@ package com.propostapdv.formulario;
 
 public class Produto {
     public String Nome;
-    public int Preco;
+    public double Preco;
     public int Quantidade;
 
-    public Produto(String nome, int preco, int quantidade){
+    public Produto(String nome, double preco, int quantidade){
         Nome = nome;
         Preco = preco;
         Quantidade = quantidade;
