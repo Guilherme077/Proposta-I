@@ -19,7 +19,7 @@ public class ControllerFormulario {
         }
 
         @PostMapping("/cadproduto")
-        public ModelAndView cadProduto(String nome, int preco, int quantidade) throws SQLException{
+        public ModelAndView cadProduto(String nome, double preco, int quantidade) throws SQLException{
             PDV.AddProduto(nome, preco, quantidade);
             ModelAndView mv = new ModelAndView("produtos");
             mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);

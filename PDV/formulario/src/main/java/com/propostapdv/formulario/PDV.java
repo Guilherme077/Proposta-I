@@ -8,7 +8,7 @@ public class PDV {
     static ArrayList<Produto> ListaProdutos = new ArrayList<>();
     static ArrayList<String> ListaProdutosStr = new ArrayList<>();
 
-    public static void AddProduto(String nome, int preco, int quantidade) throws SQLException{
+    public static void AddProduto(String nome, double preco, int quantidade) throws SQLException{
         ListaProdutos.add(new Produto(nome, preco, quantidade));
         BancoDeDadosControl.AddProdutoDB();
         AtualizarListaString();
@@ -56,6 +56,7 @@ public class PDV {
         AtualizarListaString();
     }
     public static void SubtrairQuantidade(int id, int quantidade){
+        BancoDeDadosControl.AlterarQuantidade(ListaProdutos.get(id).Nome, quantidade);
         (ListaProdutos.get(id).Quantidade) -= quantidade;
     }
     //public static String ProdutoEmString(int n){
