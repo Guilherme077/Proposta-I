@@ -9,9 +9,6 @@ public class FormularioDaAplicacaoPdvApplication {
 
 	public static void main(String[] args){
 		SpringApplication.run(FormularioDaAplicacaoPdvApplication.class, args);
-            
-            
-
-        }
+        }                
 
 }

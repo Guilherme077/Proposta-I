@@ -91,4 +91,15 @@ public class PDV {
         Carrinho.clear();
         AtualizarListaString();
     }
+
+    public static double SomaPrecoCarrinho(){
+        double total = 0.0;
+            for (Produto p : Carrinho) {
+                total += p.Preco;
+            }
+        return total;
+    }
+    public static String InfoCarrinho(){
+        return "Total: R$" + SomaPrecoCarrinho() + "<br> Quantidade: " + Carrinho.size();
+    }
 }

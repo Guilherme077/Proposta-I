@@ -16,6 +16,7 @@ public class ControllerFormulario {
             ModelAndView mv = new ModelAndView("index-TEST"); // Mudar para "index" no final
             mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
             mv.addObject("carrinho", PDV.CarrinhoStr);
+            mv.addObject("infoCarrinho", PDV.InfoCarrinho());
             return mv;
         }
 
@@ -27,16 +28,6 @@ public class ControllerFormulario {
             return mv;
 
         }
-        /*
-        @PostMapping("/vendaproduto")
-        public ModelAndView vendaProduto(String nome, int quantidade){
-            PDV.VenderProduto(nome, quantidade);
-            ModelAndView mv = new ModelAndView("produtos");
-            mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
-            return mv;
-
-        }
-        */
         @PostMapping("/lista")
         public ModelAndView lista(){
             ModelAndView mv = new ModelAndView("produtos");

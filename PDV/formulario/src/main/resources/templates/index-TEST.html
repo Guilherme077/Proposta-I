@@ -31,6 +31,7 @@
         <ul th:each="item : ${carrinho}">
             <li th:utext="${item}"></li>
         </ul>
+        <p th:utext="${infoCarrinho}"></p>
         <form action="/vendercarrinho" method="POST">
             <input type="submit" value="Finalizar compra">
         </form>
