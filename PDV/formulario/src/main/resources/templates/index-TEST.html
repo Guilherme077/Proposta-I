@@ -12,25 +12,34 @@
         <h1>Site de Vendas</h1>
         <hr>
       
-        <h2>Compre ou venda seus produtos</h2>
-            <form action="/cadproduto" method="POST">
-                    Nome: <input type="text" id="inNome"  name="nome" th:value="${nome}"><br>
-                    Preço:  <input type="text" id="inPreco" name="preco" th:value="${preco}"><br>
-                    Quantidade:  <input type="text" id="inQuantidade" name="quantidade" th:value="${qtd}"><br>
-                <input type="submit" value="Cadastrar">  
-            </form>
-            <hr>
-            <form action="/vendaproduto" method="POST">
-                Nome: <input type="text" id="inNome"  name="nome" th:value="${nome}"><br>
-                Quantidade: <input type="text" id="inQuantidade"  name="quantidade" th:value="${quantidade}"><br>
-            <input type="submit" value="Vender">  
+        <p style="font-size: 23px; font-weight: bold;">Adicionar ao estoque</p>
+        <form action="/cadproduto" method="POST">
+            Nome: <input type="text" id="inNome"  name="nome" th:value="${nome}"><br>
+            Preço:  <input type="text" id="inPreco" name="preco" th:value="${preco}"><br>
+            Quantidade:  <input type="text" id="inQuantidade" name="quantidade" th:value="${qtd}"><br>
+            <input type="submit" value="Cadastrar">  
         </form>
         <hr>
+        <p style="font-size: 23px; font-weight: bold;">Adicionar ao carrinho</p>
+        <form action="/addcarrinho" method="POST">
+            Nome: <input type="text" id="inNome"  name="nomecar" th:value="${nomecar}"><br>
+            Quantidade: <input type="text" id="inQuantidade"  name="quantidadecar" th:value="${quantidadecar}"><br>
+            <input type="submit" value="Adicionar ao carrinho">  
+        </form>
+        <hr>
+        <p style="font-size: 23px; font-weight: bold;">Seu Carrinho:</p>
+        <ul th:each="item : ${carrinho}">
+            <li th:utext="${item}"></li>
+        </ul>
+        <form action="/vendercarrinho" method="POST">
+            <input type="submit" value="Finalizar compra">
+        </form>
+    <hr>
+    <p style="font-size: 23px; font-weight: bold;">Todos os produtos:</p>
         <ul th:each="item : ${listaDeProdutos}">
             <li th:utext="${item}"></li>
         </ul>
     <hr>
-    <h3></h3>
     </body>
 
 </html>

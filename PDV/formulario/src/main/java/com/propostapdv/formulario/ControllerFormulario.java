@@ -15,6 +15,7 @@ public class ControllerFormulario {
             PDV.AtualizarListaString();
             ModelAndView mv = new ModelAndView("index-TEST"); // Mudar para "index" no final
             mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
+            mv.addObject("carrinho", PDV.CarrinhoStr);
             return mv;
         }
 
@@ -26,6 +27,7 @@ public class ControllerFormulario {
             return mv;
 
         }
+        /*
         @PostMapping("/vendaproduto")
         public ModelAndView vendaProduto(String nome, int quantidade){
             PDV.VenderProduto(nome, quantidade);
@@ -34,11 +36,27 @@ public class ControllerFormulario {
             return mv;
 
         }
+        */
         @PostMapping("/lista")
         public ModelAndView lista(){
             ModelAndView mv = new ModelAndView("produtos");
             mv.addObject("listaDeProdutos", PDV.ListaProdutosStr);
             return mv;
-
         }
+
+        @PostMapping("/addcarrinho")
+        public ModelAndView addCarrinho(String nomecar, int quantidadecar){
+            PDV.AddNoCarrinho(nomecar, quantidadecar);
+            ModelAndView mv = new ModelAndView("carrinho");
+            mv.addObject("carrinho", PDV.CarrinhoStr);
+            return mv;
+        }
+        @PostMapping("/vendercarrinho")
+        public ModelAndView venderCarrinho(){
+            PDV.VenderLista();
+            ModelAndView mv = new ModelAndView("carrinho");
+            mv.addObject("carrinho", PDV.CarrinhoStr);
+            return mv;
+        }
+        
 }
