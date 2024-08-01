@@ -6,8 +6,6 @@ import java.util.ArrayList;
 public class PDV {
     static ArrayList<Produto> ListaProdutos = new ArrayList<>();
     static ArrayList<String> ListaProdutosStr = new ArrayList<>();
-    static ArrayList<String> CarrinhoStr = new ArrayList<>();
-    static ArrayList<Produto> Carrinho = new ArrayList<>();
 
     public static void AddProduto(String nome, double preco, int quantidade) throws SQLException {
         if (!ProdutoExiste(nome, ListaProdutos)) {
@@ -43,13 +41,13 @@ public class PDV {
                             + ListaProdutos.get(n).Quantidade + "</div></div>");
         }
 
-        CarrinhoStr.clear();
-        for (int n = 0; n < Carrinho.size(); n++) {
-            CarrinhoStr.add(
+        Carrinho.CarrinhoStr.clear();
+        for (int n = 0; n < Carrinho.Cart.size(); n++) {
+            Carrinho.CarrinhoStr.add(
                     "<div style=\"font-size: 20px; color: black;\"> <div id=\"nomeProduto\" style=\"font-size: 30px; color: green;\">Nome: "
-                            + Carrinho.get(n).Nome + "</div><div id=\"precoProduto\"> Preço: "
-                            + Carrinho.get(n).Preco + "</div><div id=\"quantidadeProduto\"> Quantidade: "
-                            + Carrinho.get(n).Quantidade + "</div></div>");
+                            + Carrinho.Cart.get(n).Nome + "</div><div id=\"precoProduto\"> Preço: "
+                            + Carrinho.Cart.get(n).Preco + "</div><div id=\"quantidadeProduto\"> Quantidade: "
+                            + Carrinho.Cart.get(n).Quantidade + "</div></div>");
         }
     }
 
@@ -85,37 +83,5 @@ public class PDV {
         (ListaProdutos.get(id).Quantidade) -= quantidade;
     }
 
-    public static void AddNoCarrinho(String nome, int quantidade) {
-        if (!ProdutoExiste(nome, Carrinho)) {
-            for (int n = 0; n < ListaProdutos.size(); n++) {
-                String nomeProduto = ListaProdutos.get(n).Nome;
-                if (nomeProduto.equals(nome) && ListaProdutos.get(n).Quantidade >= quantidade) {
-                    Carrinho.add(new Produto(ListaProdutos.get(n).Nome, ListaProdutos.get(n).Preco, quantidade));
-                }
-            }
-
-            AtualizarListaString();
-        }
-
-    }
-
-    public static void VenderLista() {
-        for (Produto p : Carrinho) {
-            VenderProduto(p.Nome, p.Quantidade);
-        }
-        Carrinho.clear();
-        AtualizarListaString();
-    }
-
-    public static double SomaPrecoCarrinho() {
-        double total = 0.0;
-        for (Produto p : Carrinho) {
-            total += p.Preco;
-        }
-        return total;
-    }
-
-    public static String InfoCarrinho() {
-        return "Total: R$" + SomaPrecoCarrinho() + "<br> Quantidade: " + Carrinho.size();
-    }
+    
 }
