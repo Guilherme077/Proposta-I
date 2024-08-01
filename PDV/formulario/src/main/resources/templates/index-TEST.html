@@ -28,7 +28,7 @@
         </form>
         <hr>
         <p style="font-size: 23px; font-weight: bold;">Seu Carrinho:</p>
-        <ul th:each="item : ${carrinho}">
+        <ul th:each="item : ${carrinho}" style="list-style: none;">
             <li th:utext="${item}"></li>
         </ul>
         <p th:utext="${infoCarrinho}"></p>
@@ -36,8 +36,8 @@
             <input type="submit" value="Finalizar compra">
         </form>
     <hr>
-    <p style="font-size: 23px; font-weight: bold;">Todos os produtos:</p>
-        <ul th:each="item : ${listaDeProdutos}">
+    <p style="font-size: 23px; font-weight: bold;">No Estoque:</p>
+        <ul th:each="item : ${listaDeProdutos}"  style="list-style: none;">
             <li th:utext="${item}"></li>
         </ul>
     <hr>

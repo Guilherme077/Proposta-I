@@ -35,8 +35,8 @@ public class PDV {
         ListaProdutosStr.clear();
         for (int n = 0; n < ListaProdutos.size(); n++) {
             ListaProdutosStr.add(
-                    "<div style=\"font-size: 20px; color: black;\"> <div id=\"nomeProduto\" style=\"font-size: 30px; color: green;\">Nome: "
-                            + ListaProdutos.get(n).Nome + "</div><div id=\"precoProduto\"> Preço: "
+                    "<div style=\"font-size: 20px; color: black;\"> <div id=\"nomeProduto\" style=\"font-size: 30px; color: green;\">"
+                            + ListaProdutos.get(n).Nome + "</div><div id=\"precoProduto\"> Preço: R$"
                             + ListaProdutos.get(n).Preco + "</div><div id=\"quantidadeProduto\"> Quantidade: "
                             + ListaProdutos.get(n).Quantidade + "</div></div>");
         }
@@ -44,7 +44,7 @@ public class PDV {
         Carrinho.CarrinhoStr.clear();
         for (int n = 0; n < Carrinho.Cart.size(); n++) {
             Carrinho.CarrinhoStr.add(
-                    "<div style=\"font-size: 20px; color: black;\"> <div id=\"nomeProduto\" style=\"font-size: 30px; color: green;\">Nome: "
+                    "<div style=\"font-size: 20px; color: black;\"> <div id=\"nomeProduto\" style=\"font-size: 30px; color: green;\">"
                             + Carrinho.Cart.get(n).Nome + "</div><div id=\"precoProduto\"> Preço: "
                             + Carrinho.Cart.get(n).Preco + "</div><div id=\"quantidadeProduto\"> Quantidade: "
                             + Carrinho.Cart.get(n).Quantidade + "</div></div>");
