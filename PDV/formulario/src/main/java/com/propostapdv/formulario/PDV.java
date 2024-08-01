@@ -10,9 +10,22 @@ public class PDV {
     static ArrayList<Produto> Carrinho = new ArrayList<>();
 
     public static void AddProduto(String nome, double preco, int quantidade) throws SQLException {
-        ListaProdutos.add(new Produto(nome, preco, quantidade));
-        BancoDeDadosControl.AddProdutoDB();
-        AtualizarListaString();
+        if (!ProdutoExiste(nome, ListaProdutos)) {
+            ListaProdutos.add(new Produto(nome, preco, quantidade));
+            BancoDeDadosControl.AddProdutoDB();
+            AtualizarListaString();
+        }
+
+    }
+
+    public static boolean ProdutoExiste(String nome, ArrayList<Produto> lista) {
+        boolean existe = false;
+        for (Produto p : lista) {
+            if (p.Nome.equals(nome)) {
+                existe = true;
+            }
+        }
+        return existe;
     }
 
     public static void AtualizarListaString() {
@@ -73,15 +86,17 @@ public class PDV {
     }
 
     public static void AddNoCarrinho(String nome, int quantidade) {
-        
-        for (int n = 0; n < ListaProdutos.size(); n++) {
-            String nomeProduto = ListaProdutos.get(n).Nome;
-            if (nomeProduto.equals(nome) && ListaProdutos.get(n).Quantidade >= quantidade) {
-                Carrinho.add(new Produto(ListaProdutos.get(n).Nome, ListaProdutos.get(n).Preco, quantidade));
+        if (!ProdutoExiste(nome, Carrinho)) {
+            for (int n = 0; n < ListaProdutos.size(); n++) {
+                String nomeProduto = ListaProdutos.get(n).Nome;
+                if (nomeProduto.equals(nome) && ListaProdutos.get(n).Quantidade >= quantidade) {
+                    Carrinho.add(new Produto(ListaProdutos.get(n).Nome, ListaProdutos.get(n).Preco, quantidade));
+                }
             }
+
+            AtualizarListaString();
         }
-            
-        AtualizarListaString();
+
     }
 
     public static void VenderLista() {
@@ -92,14 +107,15 @@ public class PDV {
         AtualizarListaString();
     }
 
-    public static double SomaPrecoCarrinho(){
+    public static double SomaPrecoCarrinho() {
         double total = 0.0;
-            for (Produto p : Carrinho) {
-                total += p.Preco;
-            }
+        for (Produto p : Carrinho) {
+            total += p.Preco;
+        }
         return total;
     }
-    public static String InfoCarrinho(){
+
+    public static String InfoCarrinho() {
         return "Total: R$" + SomaPrecoCarrinho() + "<br> Quantidade: " + Carrinho.size();
     }
 }
