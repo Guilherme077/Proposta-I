@@ -31,7 +31,7 @@ public class Carrinho {
     public static double SomaPrecoCarrinho() {
         double total = 0.0;
         for (Produto p : Cart) {
-            total += p.Preco;
+            total += p.Preco * p.Quantidade;
         }
         return total;
     }
