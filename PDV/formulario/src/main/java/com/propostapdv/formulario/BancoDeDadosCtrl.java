@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BancoDeDadosControl {
+public class BancoDeDadosCtrl {
     private static String UrlSql = "jdbc:mysql://localhost";
     private static String Usuario = "pdvapp";
     private static String Senha = "2b@*[BCrXB/E]nt1";
